@@ -1,49 +1,55 @@
 import java.util.*;
-import java.io.*;
-class Node{
+
+class Node {
     int data;
     Node next;
-    public Node(int data){
-        this.data=data;
-        this.next=null;
+
+    public Node(int data) {
+        this.data = data;
+        this.next = null;
     }
 }
-class LinkedList{
-    Node head; 
-    public void insert(int data){
-        insertRec(li,data);
+
+class LinkedList {
+    Node head;
+
+    public void insert(int data) {
+        head = insertRec(head, data);
     }
-    public LinkedList insertRec(LinkedList li,int data){
+
+    public Node insertRec(Node head, int data) {
         Node new_node = new Node(data);
-        if(li == null){
-            head=new_node;
-        }
-        else{
-            Node last=head;
-            while(last.next!=null){
-                last=last.next;
+        if (head == null) {
+            head = new_node;
+        } else {
+            Node last = head;
+            while (last.next != null) {
+                last = last.next;
             }
-            last.next=new_node;
+            last.next = new_node;
         }
-        return li;
+        return head;
     }
-    public void printll(LinkedList li){
-        Node curr_node = li.head;
-        while(curr_node != null){
-            System.out.print(curr_node.data+" ");
-            curr_node=curr_node.next;
+
+    public void printll() {
+        Node curr_node = head;
+        while (curr_node != null) {
+            System.out.print(curr_node.data + " ");
+            curr_node = curr_node.next;
         }
     }
 }
-public class Main{
-    public static void main(String[] args){
-        Scanner sc=new Scanner(System.in);
-        LinkedList li=new LinkedList();
-        int n=sc.nextInt();
-        for(int i=0;i<n;i++){
-            int a=sc.nextInt();
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        LinkedList li = new LinkedList();
+        int n = sc.nextInt();
+        for (int i = 0; i < n; i++) {
+            int a = sc.nextInt();
             li.insert(a);
         }
-        li.printll(li);
+        li.printll();
+        sc.close();
     }
 }
