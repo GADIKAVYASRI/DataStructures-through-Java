@@ -1,0 +1,13 @@
+import java.util.*;
+public class QueueY{
+    public static void main(String[] args){
+        Queue<Integer> q=new LinkedList<>();//queue is an interface and is implemented using ll class.
+        q.add(1);
+        q.add(2);
+        q.add(3);
+        while(!q.isEmpty()){
+            System.out.println(q.peek());
+            q.remove();
+        }
+    }
+}
