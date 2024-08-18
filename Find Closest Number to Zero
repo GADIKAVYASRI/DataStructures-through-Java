@@ -1,0 +1,37 @@
+class Solution {
+    public int findClosestNumber(int[] nums) {
+       int n=nums[0];
+       for(int i:nums){
+            if(n>0){
+                if(i<0){
+                    //n=(n>=Math.abs(i))?(i):(n); here we couldn't store 'i' if Math.abs(i)==n since it is negative.
+                    if(n>Math.abs(i)){
+                        n=i;
+                    }
+                    else if(n==i){
+                        n=i;
+                    }
+                }
+                else if(i>0){
+                    n=(n>=i)?(i):(n);
+                }
+                else if(i==0){
+                    n=0;
+                }
+            }
+            else if(n<=0){
+                if(i<0 ){
+                    n=(Math.abs(n)>=Math.abs(i))?(i):(n);
+                }
+                else if(i>0){
+                    n=(Math.abs(n)>=i)?(i):(n);
+                }
+                else if(i==0){
+                    n=0;
+                }
+            }
+            
+       }
+       return n;
+    }
+}
